@@ -61,7 +61,9 @@ notes: Universal sulfur vapour potential. Reference state: S2 ground state
   - T values in first column, data values in second
 
 #+BEGIN_EXAMPLE
-# H2.dat (fictitious values)
+H2.dat (fictitious values)
+
+# T/K  mu/kJmol-1
 -50     20
 0       10
 50     -0.5
