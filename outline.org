@@ -1,0 +1,89 @@
+
+* Repo outline
+
+#+BEGIN_EXAMPLE
+
+                     GAPTAP
+                       |
+                       |
+                       |
+      +--+-------+----------+-----------+-----------+
+      |          |          |           |           |
+      |          |          |           |           |
+    data       test       gaptap       bin        docs
+      |                     |           |
+      +---------+           |           |
+      |         |           |           |
+ models.conf  H2.dat     __init__.py  gaptap
+              N2.dat
+              O2.csv
+             S-S2.csv
+             H2S.json
+                .
+                .
+                .
+
+#+END_EXAMPLE
+
+* Conf file format
+
+#+BEGIN_EXAMPLE
+
+[H2]
+data: data/H2.dat
+T-units: C
+pressure: 1
+p-units: bar
+
+eos: Pitzer
+Tc: 33.19
+Pc: 13.13
+w: -0.216
+ISBN: 9780071247085
+
+
+[sulfur-S2]
+data: data/S-S2.csv
+T-units: K
+p-values: -2 -1.62 -1.25
+p-units: Pa
+p-scale: log10
+
+DOI: 10.1039/C5SC03088A
+notes: Universal sulfur vapour potential. Reference state: S2 ground state
+
+#+END_EXAMPLE
+
+
+* .dat file format
+  - Whitespace-separated
+  - Comment lines start with #
+  - T values in first column, data values in second
+
+#+BEGIN_EXAMPLE
+# H2.dat (fictitious values)
+-50     20
+0       10
+50     -0.5
+70     -20.43
+82.34  -45.23
+100   -100.2
+
+#+END_EXAMPLE
+
+* .csv file format
+  - Comma-separated table
+  - Comment lines start with #
+  - Data may be provided at multiple pressures
+
+#+BEGIN_EXAMPLE
+# T/K,mu (10^-2.00 Pa) / kJ mol-1,mu (10^-1.62 Pa) / kJ mol-1,mu (10^-1.25 Pa) / kJ mol-1 ...
+200,-56.3213,-56.1418,-55.9624, ...
+210,-56.9543,-56.7658,-56.5774, ...
+220,-57.5955,-57.3980,-57.2006, ...
+#+END_EXAMPLE
+
+* .json file format
+
+  - Details to be worked out
+  - Can package together several different thermodynamic properties
