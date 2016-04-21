@@ -1,3 +1,3 @@
 # GAP(TAP)
-Gas potentials as a function of Temperature and Presure
+Gas potentials as a function of temperature and pressure
 
