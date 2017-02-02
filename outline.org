@@ -7,14 +7,14 @@
                        |
                        |
                        |
-      +--+-------+----------+-----------+-----------+
-      |          |          |           |           |
-      |          |          |           |           |
-    data       test       gaptap       bin        docs
-      |                     |           |
-      +---------+           |           |
-      |         |           |           |
- models.conf  H2.dat     __init__.py  gaptap
+      +----------+----------+-----------+-------+----------+-------+
+      |          |          |           |       |          |       |
+      |          |          |           |       |          |       |
+    data       test       gaptap       bin    utilities   docs   setup.py
+      |                     |           |       |
+      +---------+           |           |       +
+      |         |           |           |       |
+ models.conf  H2.dat    __init__.py  gaptap  nist2dat.py
               N2.dat
               O2.csv
              S-S2.csv
@@ -27,9 +27,14 @@
 
 * Conf file format
 
+Multiple models may be used for the same materials.
+Section headers are the ID for a specific model.
+
 #+BEGIN_EXAMPLE
 
 [H2]
+species: H2
+type: table
 data: data/H2.dat
 T-units: C
 pressure: 1
@@ -43,6 +48,9 @@ ISBN: 9780071247085
 
 
 [sulfur-S2]
+species: S
+type: table-2d
+refstate: S2 ground-state
 data: data/S-S2.csv
 T-units: K
 p-values: -2 -1.62 -1.25
@@ -50,7 +58,7 @@ p-units: Pa
 p-scale: log10
 
 DOI: 10.1039/C5SC03088A
-notes: Universal sulfur vapour potential. Reference state: S2 ground state
+notes: Universal sulfur vapour potential.
 
 #+END_EXAMPLE
 

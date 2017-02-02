@@ -3,7 +3,7 @@
 from os import path
 from gaptap.model import Model
 module_directory = path.abspath(path.dirname(__file__))
-data_directory = path.join(module_directory, path.pardir, 'data')
+data_directory = path.join(module_directory, 'data')
 default_config = path.join(data_directory, 'models.conf')
 
 try:
